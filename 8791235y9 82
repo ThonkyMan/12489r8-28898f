@@ -113,17 +113,17 @@ local Button = PrisonLifeTab:CreateButton({
       Game.Workspace.Doors:Destroy()
    end,
 })
-local TLSTab = Window:CreateTab("Thief Life Simulator, 121513467161513646312) -- Title, Image
+local TLSTab = Window:CreateTab("Thief Life Simulator", 121513467161513646312) -- Title, Image
 local Button = TLSTab:CreateButton({
    Name = "Sell All",
    Callback = function()
-      replicated.Events.Shop.RequestSellItem:FireServer(1)
+      ReplicatedStorage.Events.Shop.RequestSellItem:FireServer(1)
    end,
 })
 local Button = TLSTab:CreateButton({
    Name = "[UNSAFE] Farm XP (~5 seconds)",
    Callback = function()
-      replicated.Events.Loot.RequestLoot:FireServer(500)
+      ReplicatedStorage.Events.Loot.RequestLoot:FireServer(500)
    end,
 })
 local Button = TLSTab:CreateButton({
@@ -140,6 +140,6 @@ local Button = TLSTab:CreateButton({
               maxLength = #v
           end
       end
-      replicated.Events.GunShop.RequestBuy:FireServer(output)
+      ReplicatedStorage.Events.GunShop.RequestBuy:FireServer(output)
   end
 })
