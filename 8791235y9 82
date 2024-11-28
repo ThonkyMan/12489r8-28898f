@@ -113,3 +113,33 @@ local Button = PrisonLifeTab:CreateButton({
       Game.Workspace.Doors:Destroy()
    end,
 })
+local TLSTab = Window:CreateTab("Prison Life", 121513467161513646312) -- Title, Image
+local Button = PrisonLifeTab:CreateButton({
+   Name = "Sell All",
+   Callback = function()
+      replicated.Events.Shop.RequestSellItem:FireServer(1)
+   end,
+})
+local Button = PrisonLifeTab:CreateButton({
+   Name = "[UNSAFE] Farm XP (~5 seconds)",
+   Callback = function()
+      replicated.Events.Loot.RequestLoot:FireServer(500)
+   end,
+})
+local Button = PrisonLifeTab:CreateButton({
+   Name = "Buy weapon",
+   Values = fwlist,
+   Multi = false,
+   Callback = function()
+      local allowed = wlist
+      local output = ""
+      local maxLength = 0
+      for _,v in pairs(allowed) do
+          if string.find(Value, v) and #v > maxLength then
+              output = v
+              maxLength = #v
+          end
+      end
+      replicated.Events.GunShop.RequestBuy:FireServer(output)
+  end
+})
