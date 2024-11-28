@@ -107,3 +107,9 @@ local Button = MiscTab:CreateButton({
    end,
 })
 local PrisonLifeTab = Window:CreateTab("Prison Life", 121513467161513646312) -- Title, Image
+local Button = PrisonLifeTab:CreateButton({
+   Name = "Delete Doors",
+   Callback = function()
+      Game.Workspace.Doors:Destroy()
+   end,
+})
